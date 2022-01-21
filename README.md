@@ -23,7 +23,12 @@ Execute o projeto através do Maven.
 mvn spring-boot:run
 ````
 
-Acesse a api em http://localhost:8080/validate-password
+Acesse a api em http://localhost:8080/validate-password com um método POST e o objeto:
+````json
+{
+  "password" : "Teste@_01"
+}
+````
 
 ## Solução
 
