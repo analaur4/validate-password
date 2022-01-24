@@ -39,10 +39,10 @@ Na classe de modelo foi utilizado o Bean Validation para validar:
 * se a string possui os caracteres necessários para a senha ser considerada válida
     * Através da anotação @Pattern com o regex ````(^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*()-+]).*)````, onde:
         * ````^````: início da expressão
-        * ````(?=.*[0-9])````: qualquer caractere, nenhuma ou uma vez, entre os dígitos de 0 a 9
-        * ````(?=.*[a-z])````: qualquer caractere, nenhuma ou uma vez, entre letras minúsculas
-        * ````(?=.*[A-Z])````: qualquer caractere, nenhuma ou uma vez, entre letras maiúsculas
-        * ````(?=.*[!@#$%^&*()-+]).*````: qualquer caractere, nenhuma ou uma vez, entre os símbolos especiais envolvidos entre colchetes
+        * ````(?=.*[0-9])````: qualquer caractere entre os dígitos de 0 a 9, deve aparecer ao menos uma vez
+        * ````(?=.*[a-z])````: qualquer caractere entre letras minúsculas, deve aparecer ao menos uma vez
+        * ````(?=.*[A-Z])````: qualquer caractere entre letras maiúsculas, deve aparecer ao menos uma vez
+        * ````(?=.*[!@#$%^&*()-+]).*````: qualquer caractere entre os símbolos especiais envolvidos entre colchetes, deve aparecer ao menos uma vez
     
 Já na classe de serviço, onde o método ````isValid()```` foi implementado, utilizo o método ````.split()```` para tratar a string recebida como um array e acessar os seus itens através de um ````for i````. No laço de repetição verifico se há algum espaço vazio na string acessando o método ````.contains()```` do item correspondente e se há caracteres repetidos utilizando a classe ````StringUtils```` do Spring Framework.
  * O método utilizado foi o ````.countOccurrencesOf()```` que recebe como primeiro parâmetro a string na qual deverá ocorrer a busca e em segundo o item que esperamos encontrar. Esse método retorna a quantidade de ocorrências, então foi validado se essa quantidade é maior do que 1.
